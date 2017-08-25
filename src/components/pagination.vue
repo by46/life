@@ -68,16 +68,21 @@
         return page === this.currentPage ? 'active' : ''
       },
       onPageClick (page) {
+        if (this.currentPage !== page) {
+          this.$emit('page', page)
+        }
         this.currentPage = page
       },
       onPrevClick () {
         if (this.currentPage > 1) {
           this.currentPage--
+          this.$emit('page', this.currentPage)
         }
       },
       onNextClick () {
         if (this.currentPage < this.totalPages) {
           this.currentPage++
+          this.$emit('page', this.currentPage)
         }
       }
     }

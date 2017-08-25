@@ -2,7 +2,8 @@
   <div>
     {{msg}}
     <lte-pagination size="sm"
-    :totalCount="4003"></lte-pagination>
+                    :totalCount="4003"
+                    @page="onPage"></lte-pagination>
   </div>
 </template>
 
@@ -18,6 +19,11 @@
     },
     components: {
       LtePagination
+    },
+    methods: {
+      onPage (currentPage) {
+        console.log('page ', currentPage)
+      }
     }
   }
 </script>
