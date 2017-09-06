@@ -22,7 +22,7 @@
 <script>
   import LteSlider from './LteSlider.vue'
   import LteContentWrap from './LteContentWrap.vue'
-  import LteModal from '@/components/LteModal.vue'
+  import LteModal from '@/components/Modal.vue'
   import LteNaviBar from './LteNaviBar.vue'
   import VueToastr from 'vue-toastr'
 
