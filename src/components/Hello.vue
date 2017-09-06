@@ -10,12 +10,22 @@
       </div>
     </div>
 
+
+    <div>
+      <lte-pagination size="sm"
+                      :totalCount="4003"
+                      @page="onPage"></lte-pagination>
+    </div>
+    <div>
+      <lte-date-range-picker v-model="dates"></lte-date-range-picker>
+    </div>
   </div>
 </template>
 
 <script>
   import LtePagination from '@/components/pagination.vue'
   import LteInfoBox from '@/components/InfoBox.vue'
+  import LteDateRangePicker from '@/components/DateRangePicker.vue'
 
   export default {
     name: 'hello',
@@ -26,7 +36,8 @@
     },
     components: {
       LtePagination,
-      LteInfoBox
+      LteInfoBox,
+      LteDateRangePicker
     },
     methods: {
       onPage (currentPage) {

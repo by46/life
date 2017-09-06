@@ -1,42 +1,77 @@
 <template>
-  <div class="info-box" :class="fullColor">
-    <span class="info-box-icon" :class="iconColor">
-      <i class="fa fa-bookmark-o"></i>
+  <div class="info-box" :class="wrapBgColor">
+    <span class="info-box-icon" v-bind:class="color">
+      <i v-bind:class="icon"></i>
     </span>
     <div class="info-box-content">
-      <div class="info-box-text">text    </div>
-      <div class="info-box-number">1232,321,123</div>
-      <div class="progress" v-if="hasProgress">
-        <div class="progress-bar" :style="`width: ${progressPercent}%`"></div>
-        <div class="progress-description">Hello</div>
+      <span class="info-box-text">{{text}}</span>
+      <span class="info-box-number">{{parseNumber}}</span>
+
+      <div class="progress" v-if="isProgress">
+        <div class="progress-bar" :style="`width: ${percentage}%`"></div>
       </div>
+      <span class="progress-description">
+        {{ progressDescription }}
+      </span>
     </div>
   </div>
 </template>
+
 <script>
+  // TODO: move to CONSTANT
   export default {
     name: 'lte-info-box',
     props: {
-      color: {type: String, default: 'bg-aqua'},
-      // standard and advance
-      mode: {type: String, default: 'standard'},
-      text: {type: String, default: 'text'},
-      numberString: {type: String, default: ''},
-      description: {type: String, default: ''},
-      percent: {type: String, default: '0'}
+      'wrapBgColor': {
+        type: String
+      },
+      'color': {
+        type: String,
+        default: 'bg-purple'
+      },
+      'icon': {
+        type: String,
+        default: 'fa fa-archive'
+      },
+      'text': {
+        type: String,
+        required: true
+      },
+      'number': {
+        type: String,
+        default: '0'
+      },
+      'numberType': {
+        type: String
+      },
+      'percentage': {
+        type: Number,
+        default: 0
+      },
+      'progressDescription': {
+        type: String,
+        default: ''
+      },
+      'isProgress': {
+        type: Boolean,
+        default: false
+      }
     },
     computed: {
-      fullColor: function () {
-        return this.mode === 'standard' ? '' : this.color
-      },
-      iconColor: function () {
-        return this.mode !== 'standard' ? '' : this.color
-      },
-      hasProgress: function () {
-        return this.mode !== 'standard'
-      },
-      progressPercent: function () {
-
+      parseNumber () {
+        let result = this.number
+        // FIXME: using constant
+        switch (this.numberType) {
+          case 'percentage':
+            result += '%'
+            break
+          case 'comma':
+            result = Number(result).toLocaleString('en')
+            break
+          default:
+            break
+        }
+        return result
       }
     }
   }
