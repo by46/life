@@ -27,6 +27,14 @@
           borderColor: 'rgba(54, 162, 235, 1)',
           borderWidth: 1,
           data: [0, 0, 123, 120, 56, 59, 23, 1, 65]
+        }, {
+          label: 'JQuery',
+          pointRadius: 2,
+          lineTension: 0,
+          backgroundColor: 'rgba(54, 162, 235, 0.2)',
+          borderColor: 'rgba(54, 162, 235, 1)',
+          borderWidth: 1,
+          data: [0, 10, 23, 10, 56, 59, 23, 12, 65]
         }]
       }
       let options = {
@@ -44,13 +52,25 @@
         },
         tooltips: {
           callbacks: {
+            beforeLabel (item, data) {
+              return 'before '
+            },
+            afterLabel (item, data) {
+              return 'after'
+            },
             label (item, data) {
               let value = data.datasets[item.datasetIndex].data[item.index]
               return `Bandwidth: ${value} KB`
             },
+            labelTextColor (tooltipItem, chart) {
+              return '#543453'
+            },
             title (item, data) {
               console.log(item, data)
               return `${item[0].xLabel} 2018-01-01`
+            },
+            footer (items, data) {
+              return 'footer'
             }
           }
         }
