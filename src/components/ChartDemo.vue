@@ -51,6 +51,7 @@
           fontSize: 20
         },
         tooltips: {
+          mode: 'dataset',
           callbacks: {
             beforeLabel (item, data) {
               return 'before '
