@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Hello from '@/components/Hello'
-import ComputedDemo from '@/components/ComputedDemo'
-import Login from '@/components/auth/Login'
+import Hello from '@/components/Hello.vue'
+import ComputedDemo from '@/components/ComputedDemo.vue'
+import Login from '@/components/auth/Login.vue'
+import ChartDemo from '@/components/ChartDemo.vue'
 
 Vue.use(Router)
 
@@ -12,16 +13,18 @@ export default new Router({
       path: '/',
       name: 'Hello',
       component: Hello
-    },
-    {
+    }, {
       path: '/computeddemo',
       name: 'ComputedDemo',
       component: ComputedDemo
-    },
-    {
+    }, {
       path: '/auth/login',
       name: 'login',
       component: Login
+    }, {
+      path: '/chart/demo',
+      name: 'chart',
+      component: ChartDemo
     }
   ]
 })
