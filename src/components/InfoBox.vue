@@ -58,7 +58,7 @@
       }
     },
     computed: {
-      parseNumber () {
+      parseNumber() {
         let result = this.number
         // FIXME: using constant
         switch (this.numberType) {

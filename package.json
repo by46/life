@@ -99,5 +99,11 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "eslintConfig": {
+    "env": {
+      "browser": false,
+      "node": false
+    }
+  }
 }

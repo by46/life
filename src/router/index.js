@@ -14,7 +14,7 @@ export default new Router({
       name: 'Hello',
       component: Hello
     }, {
-      path: '/computeddemo',
+      path: '/computed/demo',
       name: 'ComputedDemo',
       component: ComputedDemo
     }, {

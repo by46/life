@@ -39,25 +39,25 @@
       closable: {type: Boolean, default: true},
       value: {type: Boolean, default: false}
     },
-    data () {
+    data() {
       return {
         innerValue: false
       }
     },
-    mounted () {
+    mounted() {
       this.innerValue = this.value
     },
     watch: {
-      value (newValue) {
+      value(newValue) {
         this.innerValue = newValue
       }
     },
     methods: {
-      ok (evt) {
+      ok(evt) {
         this.$emit('input', false)
         this.$emit('ok', evt)
       },
-      cancel (evt) {
+      cancel(evt) {
         this.$emit('input', false)
         this.$emit('cancel', evt)
       }

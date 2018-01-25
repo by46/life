@@ -58,12 +58,12 @@
   export default {
     name: 'lte-navi-bar',
     computed: {
-      currentUser () {
+      currentUser() {
         return 'Benjamin.C.Yan'
       }
     },
     methods: {
-      logout () {
+      logout() {
         // TODO(benjamin): login
       }
     }

@@ -15,6 +15,13 @@
                  v-bind:title="todo.title"
                  v-on:remove="todos.splice(index, 1)"></todo-item>
     </ul>
+
+    <div>
+      {{message}}
+    </div>
+    <div>
+      {{reverseMessage}}
+    </div>
   </div>
 </template>
 
@@ -25,8 +32,9 @@
 
   export default {
     name: 'computedDemo',
-    data () {
+    data() {
       return {
+        message: 'hello',
         question: '',
         answer: 'I cannot give you an answer until you ask a question!',
         myTodoText: '',
@@ -47,14 +55,19 @@
         ]
       }
     },
+    computed: {
+      reverseMessage: function() {
+        return this.message.split(' ').reverse().join(' ')
+      }
+    },
     watch: {
-      question: function (newQuestion) {
+      question: function(newQuestion) {
         this.answer = 'Waiting for you to stop typing...'
         this.getAnswer()
       }
     },
     methods: {
-      getAnswer: _.debounce(function () {
+      getAnswer: _.debounce(function() {
         if (this.question.indexOf('?') === -1) {
           this.answer = 'Questions usually contain a question mark. ;-)'
           return
@@ -62,14 +75,14 @@
         this.answer = 'Thinking...'
         var vm = this
         axios.get('https://yesno.wtf/api')
-          .then(function (response) {
+          .then(function(response) {
             vm.answer = _.capitalize(response.data.answer)
           })
-          .catch(function (error) {
+          .catch(function(error) {
             vm.answer = 'Error! ' + error
           })
       }, 500),
-      addNewTodo: function () {
+      addNewTodo: function() {
         this.todos.push({
           id: this.nextTodoId++,
           title: this.myTodoText

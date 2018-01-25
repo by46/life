@@ -11,7 +11,7 @@
 <script>
   export default {
     name: 'lte-pagination',
-    data () {
+    data() {
       return {
         currentPage: 1
       }
@@ -26,20 +26,20 @@
       maxPage: {type: Number, default: 10}
     },
     computed: {
-      sizeClass: function () {
+      sizeClass: function() {
         return this.size && 'pagination-' + this.size
       },
-      alignClass: function () {
+      alignClass: function() {
         return this.align.toLowerCase() === 'right' ? 'pull-right' : ''
       },
-      totalPages: function () {
+      totalPages: function() {
         let count = this.totalCount / this.pageSize
         if (Number.isNaN(count)) {
           return 0
         }
         return Math.ceil(count)
       },
-      pages: function () {
+      pages: function() {
         let count = this.totalPages
         let currentPage = this.currentPage
         let tmp = []
@@ -64,22 +64,22 @@
       }
     },
     methods: {
-      isActive (page) {
+      isActive(page) {
         return page === this.currentPage ? 'active' : ''
       },
-      onPageClick (page) {
+      onPageClick(page) {
         if (this.currentPage !== page) {
           this.$emit('page', page)
         }
         this.currentPage = page
       },
-      onPrevClick () {
+      onPrevClick() {
         if (this.currentPage > 1) {
           this.currentPage--
           this.$emit('page', this.currentPage)
         }
       },
-      onNextClick () {
+      onNextClick() {
         if (this.currentPage < this.totalPages) {
           this.currentPage++
           this.$emit('page', this.currentPage)

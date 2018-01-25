@@ -48,7 +48,7 @@
 <script>
   export default {
     name: 'Login',
-    data () {
+    data() {
       return {
         user: {
           email: '',
@@ -57,7 +57,7 @@
       }
     },
     methods: {
-      onSubmit () {
+      onSubmit() {
         console.log('logging')
       }
     }

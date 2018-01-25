@@ -13,13 +13,13 @@
       id: {type: String, required: true},
       value: {
         type: Object,
-        default: function () {
+        default: function() {
           return {
             start: new Date(),
             end: new Date('+14 days')
           }
         },
-        validator: function (val) {
+        validator: function(val) {
           if (val.start === null || val.start instanceof Date || typeof val.start === 'string') {
             if (val.end === null || val.end instanceof Date || typeof val.end === 'string') {
               return true
@@ -29,7 +29,7 @@
         }
       }
     },
-    mounted () {
+    mounted() {
       console.log(this.value)
       $('#' + this.id).daterangepicker({
         startDate: this.value.start,
@@ -37,7 +37,7 @@
       }, this.onSelected)
     },
     methods: {
-      onSelected (start, end) {
+      onSelected(start, end) {
         start = start.toDate()
         end = end.toDate()
         this.$emit('input', {start, end})

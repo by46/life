@@ -29,7 +29,7 @@
 
   export default {
     name: 'hello',
-    data () {
+    data() {
       return {
         msg: 'Welcome to Your Vue.js App'
       }
@@ -40,7 +40,7 @@
       LteDateRangePicker
     },
     methods: {
-      onPage (currentPage) {
+      onPage(currentPage) {
         console.log('page ', currentPage)
       }
     }

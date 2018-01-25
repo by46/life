@@ -15,7 +15,7 @@
       name: 'chart demo',
       chart: null
     },
-    mounted () {
+    mounted() {
       let ctx = $('#chartContainer')
       let data = {
         labels: ['golang', 'python', 'benjamin', 'wendy', 'hijack', 'carl', 'lua', 'IO', 'Java'],
@@ -53,24 +53,24 @@
         tooltips: {
           mode: 'dataset',
           callbacks: {
-            beforeLabel (item, data) {
+            beforeLabel(item, data) {
               return 'before '
             },
-            afterLabel (item, data) {
+            afterLabel(item, data) {
               return 'after'
             },
-            label (item, data) {
+            label(item, data) {
               let value = data.datasets[item.datasetIndex].data[item.index]
               return `Bandwidth: ${value} KB`
             },
-            labelTextColor (tooltipItem, chart) {
+            labelTextColor(tooltipItem, chart) {
               return '#543453'
             },
-            title (item, data) {
+            title(item, data) {
               console.log(item, data)
               return `${item[0].xLabel} 2018-01-01`
             },
-            footer (items, data) {
+            footer(items, data) {
               return 'footer'
             }
           }

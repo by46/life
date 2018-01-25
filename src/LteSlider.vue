@@ -193,9 +193,8 @@
 <script>
   export default {
     name: 'lte-slider',
-    props: {
-    },
-    created () {
+    props: {},
+    created() {
 
     },
     computed: {},
