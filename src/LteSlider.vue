@@ -187,6 +187,16 @@
         <li>
           <router-link to="/portal/user/12"><i class="fa fa-circle-o text-aqua"></i> <span>Profile</span></router-link>
         </li>
+        <li>
+          <router-link :to="{name:'profile', params:{username: '123'}}">
+            <i class="fa fa-circle-o text-aqua"></i> <span>Profile with route</span>
+          </router-link>
+        </li>
+        <li>
+          <router-link :to="{name:'developer'}">
+            <i class="fa fa-circle-o text-aqua"></i> <span>Developer</span>
+          </router-link>
+        </li>
       </ul>
     </section>
     <!-- /.sidebar -->
