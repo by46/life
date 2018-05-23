@@ -17,7 +17,7 @@
       color: {
         type: String,
         default: 'blue',
-        validator: function (value) {
+        validator: function(value) {
           value = (value || 'black').toLowerCase()
           return colors.indexOf(value) !== -1
         }
@@ -25,7 +25,7 @@
       theme: {
         type: String,
         default: 'minimal',
-        validator: function (value) {
+        validator: function(value) {
           value = (value || 'minimal').toLowerCase()
           return themes.indexOf(value) !== -1
         }
@@ -35,14 +35,14 @@
       value: {type: String, default: ''}
     },
     computed: {
-      componentId: function () {
+      componentId: function() {
         let suffix = Math.random().toString(36).substr(2)
         return this.id ? this.id : ('i-checkbox-' + suffix)
       },
-      selector () {
+      selector() {
         return '#' + this.componentId
       },
-      radioClass () {
+      radioClass() {
         let theme = this.theme.toLowerCase()
         let tmp = 'iradio_' + theme
         if (themesWithoutColor.indexOf(theme) === -1) {
@@ -50,11 +50,11 @@
         }
         return tmp
       },
-      checked () {
+      checked() {
         return this.value === this.text
       }
     },
-    mounted () {
+    mounted() {
       let vm = this
       $(vm.selector).iCheck({
         radioClass: vm.radioClass
@@ -62,7 +62,7 @@
       $(vm.selector).on('ifChecked', vm.onCheck)
     },
     methods: {
-      onCheck () {
+      onCheck() {
         this.$emit('input', this.text)
       }
     }

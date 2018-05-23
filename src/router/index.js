@@ -9,6 +9,7 @@ import Profile from '@/components/Profile.vue'
 import Golang from '@/components/Golang.vue'
 import Gin from '@/components/Gin.vue'
 import Echo from '@/components/Echo.vue'
+import User from '@/components/User.vue'
 
 Vue.use(Router)
 
@@ -35,6 +36,10 @@ export default new Router({
         path: 'chart/demo',
         name: 'chart',
         component: ChartDemo
+      }, {
+        path: 'user/new',
+        name: 'user',
+        component: User
       }, {
         path: 'user/:username',
         name: 'profile',
