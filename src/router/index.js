@@ -10,6 +10,8 @@ import Golang from '@/components/Golang.vue'
 import Gin from '@/components/Gin.vue'
 import Echo from '@/components/Echo.vue'
 import User from '@/components/User.vue'
+import General from '@/components/General'
+import Icons from '@/components/Icons'
 
 Vue.use(Router)
 
@@ -21,6 +23,14 @@ export default new Router({
       name: 'Portal',
       component: Portal,
       children: [{
+        path: 'general',
+        name: 'General',
+        component: General
+      }, {
+        path: 'icons',
+        name: 'General',
+        component: Icons
+      }, {
         path: '',
         name: 'Hello',
         component: Hello

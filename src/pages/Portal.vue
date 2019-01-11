@@ -10,10 +10,10 @@
       <footer class="main-footer">
         <!-- To the right -->
         <div class="pull-right hidden-xs">
-          Supported By DFIS teams
+          Supported By XXXX teams
         </div>
         <!-- Default to the left -->
-        <strong>Copyright &copy; 2016 <a href="#">Newegg, Inc</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; 2016 <a href="#">YZW, Inc</a>.</strong> All rights reserved.
       </footer>
     </div>
   </div>
